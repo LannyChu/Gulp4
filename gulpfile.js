@@ -2,7 +2,6 @@
 const gulp = require('gulp');
 const fileInclude = require('gulp-file-include'); //模块化HTML
 const sass = require('gulp-sass'); //解析scss
-const cleanCss = require('gulp-clean-css'); //压缩css文件
 const del = require('del'); //删除文件
 const connect = require('gulp-connect'); //搭建临时服务器
 const open = require('open'); //直接运行临时服务器
@@ -19,8 +18,12 @@ gulp.task('renderHtml', function () {
 
 gulp.task('renderScss', function () {
     return gulp.src(['src/scss/*.scss', '!src/scss/public.scss'])
-        .pipe(sass())
-        .pipe(cleanCss())
+        .pipe(sass({
+            // outputStyle: 'nested' //嵌套输出方式(默认)
+            // outputStyle: 'expanded' //展开输出方式
+            // outputStyle: 'compact' //紧凑输出方式
+            outputStyle: 'compressed' //压缩输出方式
+        }).on('error', sass.logError))
         .pipe(gulp.dest('src/css/'))
         .pipe(connect.reload());
 })
