@@ -61,6 +61,6 @@ gulp.task('server', gulp.series('delFile', 'renderFile', function (done) {
         livereload: false, //实时刷新
         host: '::' //可在同一局域网内访问
     })
-    open('http://192.168.1.168:9999');
+    open('http://192.168.1.168:7777');
     done();
 }, 'watch'))
