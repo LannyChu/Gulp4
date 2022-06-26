@@ -57,7 +57,7 @@ gulp.task('renderFile', gulp.parallel('renderHtml', gulp.series('renderScss', 'r
 gulp.task('server', gulp.series('delFile', 'renderFile', function (done) {
     connect.server({
         root: 'dist/',
-        port: '9999', //端口
+        port: '7777', //端口
         livereload: false, //实时刷新
         host: '::' //可在同一局域网内访问
     })
