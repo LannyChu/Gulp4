@@ -1,7 +1,7 @@
 // 引入开发依赖包
 const gulp = require('gulp');
 const fileInclude = require('gulp-file-include'); //模块化HTML
-const sass = require('gulp-sass'); //解析scss
+const sass = require('gulp-sass')(require('sass')); //解析scss
 const del = require('del'); //删除文件
 const connect = require('gulp-connect'); //搭建临时服务器
 const open = require('open'); //直接运行临时服务器
